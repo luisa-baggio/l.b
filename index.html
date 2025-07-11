@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Princess Word</title>
+  <link rel="stylesheet" href="estilo.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="menu">
+        <li><a href="#princess">The Princess</a></li>
+        <li><a href="#friends">Friends</a></li>
+        <li><a href="#sonhos">Sonhos</a></li>
+        <li><a href="#musicas">Músicas</a></li>
+        <li><a href="#sobre">Sobre a Diva</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="princess" class="section-princess">
+      <h1 class="titulo">Princess Word</h1>
+      <p class="subtitulo">Bem-vinda ao meu mundo cor-de-rosa, aqui tem um pouco de tudo sobre mim! ✨</p>
+      <div class="carousel">
+        <div class="carousel-inner">
+          <img src="the bests.jpg" alt="Foto 1" />
+          <img src="divas.jpg" alt="Foto 2" />
+          <img src="icones.jpg" alt="Foto 3" />
+        </div>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+    </section>
+
+    <section id="friends" class="content-section">
+      <h2>Friends</h2>
+      <p>Meus melhores amigos são meus pais, obviamente. Amo eles imensamente! Mas minha melhor amiga é a Maria, minha fedida favorita 💖. Independente de tudo, foi no IFC que encontrei meu grupo de amigos incríveis. Amo muito todos eles.</p>
+    </section>
+
+    <section id="sonhos" class="content-section">
+      <h2>Sonhos</h2>
+      <p>Meus sonhos são bem comuns, mas muito importantes pra mim:</p>
+      <ul>
+        <li>Me formar no ensino médio;</li>
+        <li>Fazer faculdade em uma universidade federal;</li>
+        <li>Casar com o amor da minha vida;</li>
+        <li>Ter dois filhos – um menino e uma menina;</li>
+        <li>Viajar o mundo;</li>
+        <li>Ter meu fusca rosa;</li>
+        <li>Morar na praia;</li>
+        <li>Dar orgulho pros meus pais.</li>
+      </ul>
+    </section>
+
+    <section id="musicas" class="content-section">
+      <h2>Músicas</h2>
+      <p>Eu gosto de vários estilos musicais:</p>
+      <ul>
+        <li><strong>Rock nacional</strong>: minha banda favorita é Charlie Brown Jr.</li>
+        <li><strong>Boombap</strong>: adoro Puma PJL e SZ Diniz.</li>
+        <li><strong>MPB</strong>: amo Rita Lee (a diva!) e Armandinho.</li>
+        <li><strong>Sertanejo</strong>: gosto dos clássicos como Jorge e Mateus, Ícaro e Gilmar, Luan Santana, Zé Neto e Cristiano.</li>
+      </ul>
+    </section>
+
+    <section id="sobre" class="content-section">
+      <h2>Sobre a Diva</h2>
+      <p>
+        Gosto de cozinhar (mas odeio que fiquem se metendo enquanto faço algo ). Amo ouvir música e assistir filmes — especialmente comédias românticas, filmes de época e de ação. Meus favoritos são <em>A Culpa é das Estrelas</em> e <em>Como Se Fosse a Primeira Vez</em>.
+      </p>
+      <p>
+        Amo a Disney, principalmente as princesas! Minhas favoritas são a Bela, Ariel e, claro, Branca de Neve 💗.
+      </p>
+      <p>
+        Adoro escrever, mas só coisas que o coração sente e a boca não consegue falar. Nunca, jamais em hipótese alguma, deixo alguém ler o que escrevo.Odeio brigar com alguém e odeio pedir desculpas também.
+      </p>
+      <p>
+        Amo falar (tanto que minha futura profissão é nessa área). Amo crianças, amo animais (mas  tenho medo de bichos grandes ). Ah, e também sou apaixonada por futebol e Fórmula 1. Torço pro São Paulo e pra Ferrari!
+      </p>
+    </section>
+  </main>
+
+  <script>
+    const carouselInner = document.querySelector('.carousel-inner');
+    const images = carouselInner.querySelectorAll('img');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    let index = 0;
+
+    function showImage(i) {
+      if (i < 0) index = images.length - 1;
+      else if (i >= images.length) index = 0;
+      else index = i;
+      carouselInner.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      showImage(index - 1);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      showImage(index + 1);
+    });
+
+    setInterval(() => {
+      showImage(index + 1);
+    }, 5000);
+
+    showImage(index);
+  </script>
+</body>
+</html>
